@@ -152,6 +152,40 @@ a.link:hover { text-decoration: underline; }
 @media (max-width: 734px) { .tools { grid-template-columns: 1fr; } }
 .note { margin-top: 28px; font-size: 15px; color: var(--ink-2); max-width: 44em; }
 
+/* A headline figure in a card (the catalogue workflow). */
+.highlight { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: baseline; margin-bottom: 40px; padding: 28px; border-radius: 14px; background: var(--card); }
+.highlight-num { font-family: var(--mono); font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; white-space: nowrap; }
+.highlight h3 { font-size: 17px; }
+.highlight p { margin-top: 4px; color: var(--ink-2); }
+@media (max-width: 734px) { .highlight { grid-template-columns: 1fr; gap: 12px; padding: 22px; } }
+
+/* Published plugins. */
+.plugins > li { display: grid; grid-template-columns: 96px 196px 1fr; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.plugins > li:first-child { border-top: 1px solid var(--rule); }
+.plugin-host { font-family: var(--mono); font-size: 13px; color: var(--ink-3); letter-spacing: 0; }
+.plugin-name { font-weight: 600; color: var(--ink); }
+.plugin-name::after { content: " ↗"; font-weight: 400; color: var(--ink-3); }
+.plugin-name:hover { color: var(--signal); }
+.plugin-text { color: var(--ink-2); }
+@media (max-width: 734px) { .plugins > li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Skills: a column per app, its features listed under it with a glyph each, as on apple.com's compare pages. */
+.apps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 32px 20px; }
+.app { text-align: center; }
+.app-icon {
+  display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 13px;
+  background: var(--ink); color: #fff; font-size: 22px; font-weight: 600; letter-spacing: -0.02em;
+}
+.app-icon img { width: 26px; height: 26px; }
+.app-name { margin-top: 14px; font-size: 17px; letter-spacing: -0.016em; }
+.feats { display: grid; gap: 22px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
+.feats li { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 13px; line-height: 1.35; color: var(--ink-2); }
+.glyph { width: 30px; height: 30px; fill: none; stroke: var(--ink); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.glyph .fill { fill: #e4e4e4; }
+.utilities { margin-top: 64px; }
+@media (max-width: 1068px) { .apps { grid-template-columns: repeat(3, 1fr); row-gap: 48px; } }
+@media (max-width: 560px) { .apps { grid-template-columns: repeat(2, 1fr); } }
+
 /* Experience timeline. */
 .timeline > li { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
 .timeline > li:first-child { padding-top: 0; }
