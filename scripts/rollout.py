@@ -17,15 +17,15 @@ COLUMNS = [
         dict(id="product", label="Product master", sub="Cut-outs, price, legal", tall=True),
     ]),
     ("Channels", 136, [
-        dict(id="ooh", label="OOH"),
-        dict(id="dooh", label="Digital OOH"),
-        dict(id="print", label="Print"),
-        dict(id="pos", label="In-store POS"),
-        dict(id="social", label="Social"),
-        dict(id="linkedin", label="LinkedIn"),
-        dict(id="web", label="Website (CMS)"),
-        dict(id="display", label="Display banners"),
-        dict(id="dco", label="DCO"),
+        dict(id="ooh", label="OOH", app="adobe"),
+        dict(id="dooh", label="Digital OOH", app="figma"),
+        dict(id="print", label="Print", app="adobe"),
+        dict(id="pos", label="In-store POS", app="adobe"),
+        dict(id="social", label="Social", app="figma"),
+        dict(id="linkedin", label="LinkedIn", app="figma"),
+        dict(id="web", label="Website (CMS)", app="figma"),
+        dict(id="display", label="Display banners", app="figma"),
+        dict(id="dco", label="DCO", app="figma"),
     ]),
     ("Typical sizes", 292, [
         dict(id="f-ooh", label="1200 × 1800 mm · 6096 × 3048 mm", mono=True),
@@ -61,6 +61,13 @@ LINKS = [
 # Drawn in the house blue: the Special Buys digital OOH on this page.
 CHOSEN = ["brief", "product", "dooh", "f-dooh", "jpg"]
 
+# The mark on each channel: Adobe for print (CMYK) work, Figma for screen (RGB) work. Paths from Simple Icons (CC0).
+APP_MARKS = {
+    "adobe": "M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z",
+    "figma": open(pathlib.Path(__file__).resolve().parent.parent / "assets/icons/figma.svg").read().split(' d="')[1].split('"')[0],
+}
+APP_TITLES = {"adobe": "Print, made in Adobe apps", "figma": "Screen (RGB), made in Figma"}
+
 GAP = 36        # between columns
 ROW = 32        # node height
 TALL = 44       # node height with a second line
@@ -94,6 +101,8 @@ def build():
     chosen_pairs = set(zip(CHOSEN, CHOSEN[1:]))
     out = [f'<svg class="flow-graph" viewBox="-1 0 {width + 2} {height + 1}" role="img" '
            f'aria-label="A typical ALDI rollout: the brief, two masters, nine channels, their typical sizes and the files delivered.">']
+    out.append("<defs>" + "".join(
+        f'<symbol id="mk-{k}" viewBox="0 0 24 24"><path d="{d}"/></symbol>' for k, d in APP_MARKS.items()) + "</defs>")
     for tx, t in titles:
         out.append(f'<text class="fl-title" x="{tx}" y="12">{html.escape(t.upper())}</text>')
     # Plain edges first, the chosen path on top.
@@ -113,6 +122,10 @@ def build():
         else:
             cls = "fn-label fn-mono" if n.get("mono") else "fn-label"
             out.append(f'<text class="{cls}" x="11" y="{n["h"] / 2 + 4:.1f}">{label}</text>')
+        if n.get("app"):
+            s = 12
+            out.append(f'<use class="fn-app" href="#mk-{n["app"]}" x="{n["w"] - s - 10}" y="{(n["h"] - s) / 2:.1f}" '
+                       f'width="{s}" height="{s}"><title>{APP_TITLES[n["app"]]}</title></use>')
         out.append("</g>")
     out.append("</svg>")
     return "\n".join(out)

@@ -245,7 +245,10 @@ a.link:hover { text-decoration: underline; }
 .fn-label { font-size: 12px; font-weight: 600; fill: var(--ink); letter-spacing: -0.005em; }
 .fn-mono { font-family: var(--mono); font-size: 10.5px; font-weight: 400; fill: var(--ink-2); letter-spacing: 0; }
 .fn-sub { font-size: 10.5px; fill: var(--ink-2); }
-.flow-summary { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-top: 1px solid #eee; font-size: 12px; color: var(--ink-3); }
+.fn-app { fill: var(--ink-2); }
+.flow-key { display: inline-flex; align-items: center; gap: 5px; margin-left: 14px; }
+.flow-key svg { width: 11px; height: 11px; fill: var(--ink-2); }
+.flow-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 18px; border-top: 1px solid #eee; font-size: 12px; color: var(--ink-3); }
 @media (max-width: 734px) { .flow-view { padding: 18px 14px; } }
 
 /* Awards. */
