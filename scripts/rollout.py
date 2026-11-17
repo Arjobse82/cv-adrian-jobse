@@ -27,11 +27,11 @@ COLUMNS = [
         dict(id="display", label="Display banners", app="adobe"),
         dict(id="dco", label="DCO", app="adobe"),
     ]),
-    ("Delivered as", 190, [
+    ("Delivered as", 150, [
         dict(id="pdf", label="PDF print-ready", mono=True),
         dict(id="jpg", label="JPG · PNG", mono=True),
         dict(id="mp4", label="MP4", mono=True),
-        dict(id="html5", label="PSD to digital agency", mono=True),
+        dict(id="html5", label="PSD", mono=True),
     ]),
 ]
 
