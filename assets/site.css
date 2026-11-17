@@ -115,7 +115,11 @@ a.link:hover { text-decoration: underline; }
 .award-strip { display: block; margin-top: 36px; color: var(--ink-3); }
 .award-caption { display: block; margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
 .award-marks { display: flex; flex-wrap: wrap; gap: 14px 30px; }
-.award-mark { display: flex; flex-direction: column; gap: 3px; }
+.award-mark { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
+/* Each show's own logo, flattened to one grey whatever its colours (B&T's is white, AdNews's is red). */
+.award-mark img { display: block; width: auto; max-width: none; filter: brightness(0); opacity: 0.42; transition: opacity 0.15s; }
+.award-strip:hover .award-mark img { opacity: 0.7; }
+.award-marks { align-items: flex-end; }
 .award-mark b { font-size: 14px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: #9a9a9a; line-height: 1; transition: color 0.15s; }
 .award-mark i { font-style: normal; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0; color: var(--ink-3); }
 .award-strip:hover .award-mark b { color: var(--ink-2); }
