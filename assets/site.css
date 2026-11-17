@@ -111,6 +111,15 @@ a.link:hover { text-decoration: underline; }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero-photo { order: -1; width: 160px; margin-bottom: 28px; }
 }
+/* Award shows as a row of grey wordmarks under the buttons; links to the awards list. */
+.award-strip { display: block; margin-top: 36px; color: var(--ink-3); }
+.award-caption { display: block; margin-bottom: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+.award-marks { display: flex; flex-wrap: wrap; gap: 14px 30px; }
+.award-mark { display: flex; flex-direction: column; gap: 3px; }
+.award-mark b { font-size: 14px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase; color: #9a9a9a; line-height: 1; transition: color 0.15s; }
+.award-mark i { font-style: normal; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0; color: var(--ink-3); }
+.award-strip:hover .award-mark b { color: var(--ink-2); }
+@media (max-width: 734px) { .award-marks { gap: 12px 22px; } .award-mark b { font-size: 13px; } }
 .hero .t-sub { margin-top: 20px; max-width: 30em; }
 .hero .t-sub-2 { margin-top: 14px; font-size: 19px; line-height: 1.5; letter-spacing: -0.014em; max-width: 38em; }
 @media (max-width: 734px) { .hero .t-sub-2 { font-size: 17px; } }
