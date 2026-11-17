@@ -13,8 +13,8 @@ COLUMNS = [
         dict(id="brief", label="Campaign brief", sub="Media schedule", tall=True),
     ]),
     ("Masters", 150, [
-        dict(id="brand", label="Brand master", sub="Key visual, line, logo", tall=True),
-        dict(id="product", label="Product master", sub="Cut-outs, price, legal", tall=True),
+        dict(id="brand", label="Brand masters", sub="Key visual, line, logo", tall=True),
+        dict(id="product", label="Product masters", sub="Cut-outs, price, legal", tall=True),
     ]),
     ("Channels", 136, [
         dict(id="ooh", label="OOH", app="adobe"),
@@ -24,14 +24,14 @@ COLUMNS = [
         dict(id="social", label="Social", app="figma"),
         dict(id="linkedin", label="LinkedIn", app="figma"),
         dict(id="web", label="Website (CMS)", app="figma"),
-        dict(id="display", label="Display banners", app="figma"),
-        dict(id="dco", label="DCO", app="figma"),
+        dict(id="display", label="Display banners", app="adobe"),
+        dict(id="dco", label="DCO", app="adobe"),
     ]),
-    ("Delivered as", 150, [
+    ("Delivered as", 190, [
         dict(id="pdf", label="PDF print-ready", mono=True),
         dict(id="jpg", label="JPG · PNG", mono=True),
         dict(id="mp4", label="MP4", mono=True),
-        dict(id="html5", label="HTML5", mono=True),
+        dict(id="html5", label="PSD to digital agency", mono=True),
     ]),
 ]
 
@@ -87,7 +87,7 @@ def build():
 
     chosen_pairs = set(zip(CHOSEN, CHOSEN[1:]))
     out = [f'<svg class="flow-graph" viewBox="-1 0 {width + 2} {height + 1}" role="img" '
-           f'aria-label="A typical ALDI rollout: the brief, two masters, nine channels and the files delivered.">']
+           f'aria-label="A typical ALDI rollout: the brief, the brand and product masters, nine channels and what each one is delivered as.">']
     out.append("<defs>" + "".join(
         f'<symbol id="mk-{k}" viewBox="0 0 24 24"><path d="{d}"/></symbol>' for k, d in APP_MARKS.items()) + "</defs>")
     for tx, t in titles:
