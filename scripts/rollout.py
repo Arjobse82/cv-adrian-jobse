@@ -100,8 +100,6 @@ def build():
         chosen = n["id"] in CHOSEN
         out.append(f'<g class="fn{" fn-chosen" if chosen else ""}" transform="translate({n["x"]} {n["y"]:.1f})">')
         out.append(f'<rect class="fn-box" x="0.5" y="0.5" width="{n["w"] - 1}" height="{n["h"] - 1}" rx="6"/>')
-        if chosen:
-            out.append(f'<rect class="fn-mark" x="0.5" y="5" width="2" height="{n["h"] - 10}" rx="1"/>')
         label = html.escape(n["label"])
         if n.get("tall"):
             out.append(f'<text class="fn-label" x="11" y="19">{label}</text>')
