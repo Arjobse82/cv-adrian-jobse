@@ -79,12 +79,6 @@
           <span class="plugin-text">Preflight for Figma frames: low-res images, off-pixel positions, detached instances and raw colours.</span>
         </li>
       </ul>
-      <div class="gallery" style="margin-top: 40px">
-        <div class="gallery-row">
-          <figure class="piece" style="--ar: 1.778"><a href="assets/plugins/frame-multiplier-tour-3-1920.webp"><img src="assets/plugins/frame-multiplier-tour-3-1920.webp" width="1920" height="1080" loading="lazy" alt="Frame Multiplier: a handful of burger ad masters built out into hundreds of sizes on a Figma canvas."></a><figcaption>Frame Multiplier: every size from a few masters<span class="mono">Figma</span></figcaption></figure>
-          <figure class="piece" style="--ar: 1.778"><a href="assets/plugins/bloom-tour-3-1920.webp"><img src="assets/plugins/bloom-tour-3-1920.webp" width="1920" height="1080" loading="lazy" alt="Bloom: what it finds and fixes, from off-pixel positions and low-res images to detached instances and placeholder text."></a><figcaption>Bloom: what it finds and fixes<span class="mono">Figma</span></figcaption></figure>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -150,13 +144,6 @@
   </div>
 </footer>
 
-<dialog class="lightbox" aria-label="Enlarged image">
-  <form method="dialog">
-    <button aria-label="Close"></button>
-    <img alt="">
-    <p></p>
-  </form>
-</dialog>
 
 <script type="module">
   // Ad Agent's glyph globe (assets/js/glyphs.js, from Ad Agent's globe.ts via the Monochrome Systems site): runs while
@@ -184,19 +171,6 @@
     host.observer = observer;
   }
 
-  const box = document.querySelector(".lightbox");
-  const big = box.querySelector("img");
-  const caption = box.querySelector("p");
-  document.querySelectorAll(".piece a").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (event.metaKey || event.ctrlKey || event.shiftKey) return;
-      event.preventDefault();
-      big.src = link.href;
-      big.alt = link.querySelector("img").alt;
-      caption.textContent = link.closest("figure").querySelector("figcaption").innerText.replace("\n", " · ");
-      box.showModal();
-    });
-  });
 </script>
 
 </body>
