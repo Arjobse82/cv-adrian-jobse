@@ -235,6 +235,10 @@ a.link:hover { text-decoration: underline; }
 .timeline p { margin-top: 4px; color: var(--ink-2); }
 @media (max-width: 734px) { .timeline > li { grid-template-columns: 1fr; gap: 4px; } }
 
+/* An employer's logo (BMF, from bmf.com.au), in the page's dark grey. */
+.org-logo { display: block; width: auto; height: 20px; margin-bottom: 10px; opacity: 0.85; }
+.org-logo-hero { height: 30px; margin-bottom: 22px; }
+
 /* Contact. */
 .contact { padding: 96px 0 112px; background: var(--card); }
 .contact .t-h { max-width: 22em; }
