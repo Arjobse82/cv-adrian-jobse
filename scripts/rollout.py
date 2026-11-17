@@ -46,7 +46,7 @@ LINKS = [
 ]
 
 # Drawn in the house blue: the Special Buys digital OOH on this page.
-CHOSEN = ["brief", "product", "dooh", "jpg"]
+CHOSEN = []
 
 # The mark on each channel: Adobe for print (CMYK) work, Figma for screen (RGB) work. Paths from Simple Icons (CC0).
 APP_MARKS = {
