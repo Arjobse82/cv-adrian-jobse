@@ -27,18 +27,7 @@ COLUMNS = [
         dict(id="display", label="Display banners", app="figma"),
         dict(id="dco", label="DCO", app="figma"),
     ]),
-    ("Typical sizes", 292, [
-        dict(id="f-ooh", label="1010 × 1510 mm posters · large format", mono=True),
-        dict(id="f-dooh", label="1920 × 1080 · 1440 × 720 · 3924 × 972 wrap", mono=True),
-        dict(id="f-print", label="Catalogue inserts 177 × 272 mm · press", mono=True),
-        dict(id="f-pos", label="Table surrounds 700 × 560 · 1100 × 560 mm", mono=True),
-        dict(id="f-social", label="1080 × 1080 · 1080 × 1920 · 630 × 630", mono=True),
-        dict(id="f-linkedin", label="1200 × 627 · 1080 × 1080", mono=True),
-        dict(id="f-web", label="948 × 360 · 1416 × 1142 · 468 × 269", mono=True),
-        dict(id="f-display", label="300 × 250 · 728 × 90 · 300 × 600 · 320 × 50", mono=True),
-        dict(id="f-dco", label="Templates fed by product and price", mono=True),
-    ]),
-    ("Delivered as", 118, [
+    ("Delivered as", 150, [
         dict(id="pdf", label="PDF print-ready", mono=True),
         dict(id="jpg", label="JPG · PNG", mono=True),
         dict(id="mp4", label="MP4", mono=True),
@@ -51,15 +40,13 @@ LINKS = [
     ("brand", "ooh"), ("brand", "dooh"), ("brand", "social"), ("brand", "linkedin"), ("brand", "web"), ("brand", "display"),
     ("product", "dooh"), ("product", "print"), ("product", "pos"), ("product", "social"), ("product", "web"),
     ("product", "display"), ("product", "dco"),
-    ("ooh", "f-ooh"), ("dooh", "f-dooh"), ("print", "f-print"), ("pos", "f-pos"), ("social", "f-social"),
-    ("linkedin", "f-linkedin"), ("web", "f-web"), ("display", "f-display"), ("dco", "f-dco"),
-    ("f-ooh", "pdf"), ("f-print", "pdf"), ("f-pos", "pdf"),
-    ("f-dooh", "jpg"), ("f-dooh", "mp4"), ("f-social", "jpg"), ("f-social", "mp4"), ("f-linkedin", "jpg"),
-    ("f-web", "jpg"), ("f-display", "html5"), ("f-dco", "html5"),
+    ("ooh", "pdf"), ("print", "pdf"), ("pos", "pdf"),
+    ("dooh", "jpg"), ("dooh", "mp4"), ("social", "jpg"), ("social", "mp4"), ("linkedin", "jpg"),
+    ("web", "jpg"), ("display", "html5"), ("dco", "html5"),
 ]
 
 # Drawn in the house blue: the Special Buys digital OOH on this page.
-CHOSEN = ["brief", "product", "dooh", "f-dooh", "jpg"]
+CHOSEN = ["brief", "product", "dooh", "jpg"]
 
 # The mark on each channel: Adobe for print (CMYK) work, Figma for screen (RGB) work. Paths from Simple Icons (CC0).
 APP_MARKS = {
@@ -100,7 +87,7 @@ def build():
 
     chosen_pairs = set(zip(CHOSEN, CHOSEN[1:]))
     out = [f'<svg class="flow-graph" viewBox="-1 0 {width + 2} {height + 1}" role="img" '
-           f'aria-label="A typical ALDI rollout: the brief, two masters, nine channels, their typical sizes and the files delivered.">']
+           f'aria-label="A typical ALDI rollout: the brief, two masters, nine channels and the files delivered.">']
     out.append("<defs>" + "".join(
         f'<symbol id="mk-{k}" viewBox="0 0 24 24"><path d="{d}"/></symbol>' for k, d in APP_MARKS.items()) + "</defs>")
     for tx, t in titles:
