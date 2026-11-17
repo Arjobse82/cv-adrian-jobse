@@ -160,7 +160,7 @@ a.link:hover { text-decoration: underline; }
 @media (max-width: 734px) { .highlight { grid-template-columns: 1fr; gap: 12px; padding: 22px; } }
 
 /* Published plugins. */
-.plugins > li { display: grid; grid-template-columns: 96px 196px 1fr; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.plugins > li { display: grid; grid-template-columns: 96px 228px 1fr; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
 .plugins > li:first-child { border-top: 1px solid var(--rule); }
 .plugin-host { font-family: var(--mono); font-size: 13px; color: var(--ink-3); letter-spacing: 0; }
 .plugin-name { font-weight: 600; color: var(--ink); }
@@ -223,11 +223,12 @@ a.link:hover { text-decoration: underline; }
 .piece a:hover img { transform: scale(1.015); }
 .piece figcaption { margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
 .piece figcaption .mono { display: block; margin-top: 2px; font-size: 12px; color: var(--ink-3); }
+/* Phones: landscape pieces take the full width, portrait and square ones go two across at a fixed half width. */
 @media (max-width: 734px) {
   .gallery-row { flex-wrap: wrap; row-gap: 20px; }
   .gallery-row.narrow { max-width: none; }
-  .piece { flex-basis: 100%; }
-  .piece.pair { flex-basis: calc(50% - 6px); }
+  .piece { flex: 0 0 100%; order: 1; }
+  .piece.pair { flex: 0 0 calc(50% - 6px); order: 0; }
 }
 
 /* Awards. */
