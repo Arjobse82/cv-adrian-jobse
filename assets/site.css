@@ -229,6 +229,25 @@ a.link:hover { text-decoration: underline; }
   .piece.pair { flex: 0 0 calc(50% - 6px); order: 0; }
 }
 
+/* Rollout flow chart: Ad Agent's node view in miniature (scripts/rollout.py draws the SVG). */
+.flow { border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; background: #fff; }
+.flow-bar { display: flex; align-items: baseline; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #eee; font-size: 13px; }
+.flow-name { font-weight: 600; }
+.flow-sub { color: var(--ink-3); }
+.flow-view { padding: 24px 22px 26px; overflow-x: auto; background: radial-gradient(ellipse 70% 80% at 50% 55%, #f1f1f1 0%, #f1f1f1 45%, #fff 100%); }
+.flow-graph { display: block; width: 100%; min-width: 880px; height: auto; overflow: visible; font-family: var(--font); }
+.fl-title { font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; fill: var(--ink-3); }
+.fe { fill: none; stroke: #d6d6d6; stroke-width: 1.2; }
+.fe-chosen { stroke: var(--signal); stroke-width: 2; }
+.fn-box { fill: #fff; stroke: #e0e0e0; }
+.fn-chosen .fn-box { stroke: var(--signal); }
+.fn-mark { fill: var(--signal); }
+.fn-label { font-size: 12px; font-weight: 600; fill: var(--ink); letter-spacing: -0.005em; }
+.fn-mono { font-family: var(--mono); font-size: 10.5px; font-weight: 400; fill: var(--ink-2); letter-spacing: 0; }
+.fn-sub { font-size: 10.5px; fill: var(--ink-2); }
+.flow-summary { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-top: 1px solid #eee; font-size: 12px; color: var(--ink-3); }
+@media (max-width: 734px) { .flow-view { padding: 18px 14px; } }
+
 /* Awards. */
 .awards > li { display: grid; grid-template-columns: 72px 1fr auto; gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
 .awards > li:first-child { border-top: 1px solid var(--rule); }
