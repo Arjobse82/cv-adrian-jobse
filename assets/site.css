@@ -102,6 +102,13 @@ a.link:hover { text-decoration: underline; }
 
 .hero { padding: 112px 0 72px; }
 .hero .label { margin-bottom: 18px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 280px; gap: 56px; align-items: end; }
+.hero-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; background: var(--card); }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr 200px; gap: 32px; } }
+@media (max-width: 640px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-photo { order: -1; width: 160px; margin-bottom: 28px; }
+}
 .hero .t-sub { margin-top: 20px; max-width: 30em; }
 .hero .t-sub-2 { margin-top: 14px; font-size: 19px; line-height: 1.5; letter-spacing: -0.014em; max-width: 38em; }
 @media (max-width: 734px) { .hero .t-sub-2 { font-size: 17px; } }
