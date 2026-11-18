@@ -235,23 +235,83 @@ a.link:hover { text-decoration: underline; }
 .timeline p { margin-top: 4px; color: var(--ink-2); }
 @media (max-width: 734px) { .timeline > li { grid-template-columns: 1fr; gap: 4px; } }
 
-/* UX/UI & branding (AI & Automation page): icon cards, the One Percent marks, then screens in the gallery. */
+/* Second CV (ai-ux.html): Ad Agent's widget rail on the left, the sections to its right. The tiles are Ad Agent's
+   (src/app/house.css .widget--tile, app.css .rail): white, a hairline ring, its glyphs in the ink with the soft grey. */
+.glyph-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.cv2-body { --w-surface: #fff; --w-glyph-soft: #d1d0d0; --w-glyph-ok: #81ff42; --w-glyph-dot: 0; }
+.cv2 { width: min(1200px, 94%); margin-inline: auto; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 48px; }
+.cv2-main .wrap { width: 100%; }
+.cv2-main .hero { padding-top: 72px; }
+.cv2-rail { position: sticky; top: 52px; height: calc(100vh - 52px); display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.cv2-tile { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); }
+.cv2-tile-face { position: relative; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 14px;
+  background: var(--w-surface); box-shadow: 0 0 0 1px var(--rule); transition: box-shadow .15s; }
+.cv2-tile-face svg { width: 100%; height: 100%; border-radius: inherit; }
+.cv2-tile .aj { font-family: var(--mono); font-size: 19px; letter-spacing: 0; }
+.cv2-tile-name { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0; color: var(--ink-3); }
+.cv2-tile:hover .cv2-tile-face { box-shadow: 0 0 0 1px var(--ink-3); }
+/* The open one: ink ring and Ad Agent's caret pointing at its section. */
+.cv2-tile[aria-current] .cv2-tile-face { box-shadow: 0 0 0 1.5px var(--ink); }
+.cv2-tile[aria-current] .cv2-tile-face::after { content: ""; position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%);
+  border: 5px solid transparent; border-left-color: var(--ink); }
+.cv2-tile[aria-current] .cv2-tile-name { color: var(--ink); }
+.cv2-tile:first-child .cv2-tile-face { background: #111; color: #fff; }
+.cv2-tile:first-child .cv2-tile-face::before { content: ""; position: absolute; right: 7px; bottom: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--w-glyph-ok); }
+
 .sub-head { margin: 56px 0 16px; font-size: 17px; font-weight: 600; letter-spacing: -0.016em; }
 .sub-head + .sub-text { margin: -8px 0 20px; max-width: 44em; color: var(--ink-2); }
-.brand-icons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.brand-icon { display: flex; flex-direction: column; align-items: center; padding: 30px 12px 20px; border-radius: 14px; background: var(--card); text-align: center; }
-.brand-icon img { width: 88px; height: 88px; margin-bottom: 18px; object-fit: contain; }
-.brand-icon-mark img, .brand-icon-line img { padding: 16px; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px var(--rule); }
-.brand-icon-name { font-size: 14px; font-weight: 600; color: var(--ink); }
-.brand-icon-host { margin-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0; }
-.brand-marks { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin-bottom: 12px; }
-.brand-card { display: grid; place-items: center; min-height: 200px; padding: 32px; border-radius: 14px; background: var(--card); }
-.brand-card img { width: auto; max-width: 100%; height: auto; }
-.brand-card-wide img { width: 100%; max-width: 420px; }
+
+/* UI: logos and icon cards. */
+.ui-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.ui-card { display: flex; flex-direction: column; padding: 18px 18px 16px; border-radius: 14px; background: var(--card); }
+.ui-card img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 14px; }
+.ui-card-dark { background: #111; }
+.ui-card-dark .ui-name { color: #fff; }
+.ui-card-wide { grid-column: span 2; }
+.ui-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.ui-host { margin-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0; }
+.ui-widgets { list-style: none; margin: 0 0 12px; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.ui-widget { padding: 14px; border-radius: 14px; background: var(--card); }
+.ui-widget img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.ui-sheet { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; padding: 22px; border-radius: 14px; background: var(--card); }
+.ui-sheet img { width: 100%; height: auto; }
+.ui-sheet-short img { max-width: 520px; }
+.ui-icons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(9, 1fr); gap: 10px; }
+.ui-icons li { padding: 14px; border-radius: 12px; background: var(--card); }
+.ui-icons img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+
+/* UX: the plugins' own help-page drawings, inline. */
+.ux-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.ux-row-5 { grid-template-columns: repeat(5, 1fr); }
+.ux-fig { margin: 0; display: flex; flex-direction: column; }
+.ux-fig.ux-w2 { grid-column: span 2; }
+.ux-fig.ux-w3 { grid-column: span 3; }
+.ux-art { flex: 1; display: grid; place-items: center; padding: 20px; border-radius: 14px; background: var(--card); }
+.ux-art svg { width: 100%; height: auto; max-height: 340px; }
+.ux-fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+.ux-fig figcaption b { display: block; font-weight: 600; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .ui-icons { grid-template-columns: repeat(6, 1fr); }
+  .ux-row-5 { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 734px) {
-  .brand-icons { grid-template-columns: repeat(2, 1fr); }
-  .brand-marks { grid-template-columns: 1fr; }
-  .brand-card { min-height: 150px; }
+  /* The rail becomes a row of tiles under the bar. */
+  .cv2 { display: block; width: 100%; }
+  .cv2-rail { position: sticky; top: 52px; z-index: 5; height: auto; flex-direction: row; justify-content: center; gap: 10px;
+    padding: 10px 0; background: rgba(255, 255, 255, .94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+  .cv2-tile-face { width: 42px; height: 42px; border-radius: 11px; }
+  .cv2-tile .aj { font-size: 14px; }
+  .cv2-tile-name { display: none; }
+  .cv2-tile[aria-current] .cv2-tile-face::after { left: 50%; top: calc(100% + 4px); transform: translateX(-50%); border-color: transparent; border-top-color: var(--ink); }
+  .cv2-tile:first-child .cv2-tile-face::before { right: 5px; bottom: 5px; width: 5px; height: 5px; }
+  .cv2-main .wrap { width: 87.5%; }
+  .cv2-main .hero { padding-top: 40px; }
+  .ui-grid { grid-template-columns: repeat(2, 1fr); }
+  .ui-widgets { grid-template-columns: repeat(3, 1fr); }
+  .ui-icons { grid-template-columns: repeat(4, 1fr); }
+  .ux-row, .ux-row-5, .ux-row-3 { grid-template-columns: 1fr 1fr; }
+  .ux-fig.ux-w2, .ux-fig.ux-w3 { grid-column: span 2; }
 }
 
 /* An employer's logo (BMF, from bmf.com.au), in the page's dark grey. */
