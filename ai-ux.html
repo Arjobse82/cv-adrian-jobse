@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/site.css?v=18">
+  <link rel="stylesheet" href="assets/site.css?v=20">
 </head>
 <body class="cv2-body">
 
@@ -39,6 +39,8 @@
       <path d="M11,22v-5c0-1.66,1.34-3,3-3h34c1.66,0,3,1.34,3,3v5Z" fill="currentColor"/><path d="M11,22h40v23c0,1.66-1.34,3-3,3H14c-1.66,0-3-1.34-3-3Z" style="fill:var(--w-glyph-soft)"/><rect x="11.5" y="14.5" width="39" height="33" rx="2.5" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1"/><line x1="11.5" y1="30.67" x2="50.5" y2="30.67" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1"/><line x1="11.5" y1="39.33" x2="50.5" y2="39.33" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1"/><line x1="24" y1="22" x2="24" y2="47.5" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1"/>
     </symbol>
 </svg>
+
+<div class="cv2-globe glyphs" data-glyphs='{"form":"globe","speed":2,"wobble":0,"grain":0,"flow":0.3,"breathe":0.05,"radius":0.4,"glyphScale":0.8,"rim":3.6,"back":1,"brightness":1.1,"tilt":0.21,"spray":0.5,"points":10000,"spin":0.11,"center":[0.56,0.5]}' aria-hidden="true"></div>
 
 <header class="nav">
   <div class="wrap">
@@ -94,15 +96,15 @@
       <p class="lead">Logos, app icons, widgets and icon sets I drew for my own apps and plugins, in Illustrator.</p>
 
       <h3 class="sub-head">Logos</h3>
-      <ul class="ui-grid">
-        <li class="ui-card ui-card-dark"><img src="assets/ui/ad-agent-logo.svg" alt="Ad Agent logo" loading="lazy"><span class="ui-name">Ad Agent</span><span class="ui-host">Mac app</span></li>
-        <li class="ui-card "><img src="assets/ui/automated-assemblr-logo.svg" alt="Automated Assemblr logo" loading="lazy"><span class="ui-name">Automated Assemblr</span><span class="ui-host">InDesign</span></li>
-        <li class="ui-card "><img src="assets/ui/assemblr-logo.svg" alt="Assemblr logo" loading="lazy"><span class="ui-name">Assemblr</span><span class="ui-host">InDesign, Photoshop</span></li>
-        <li class="ui-card "><img src="assets/ui/frame-multiplier-logo.svg" alt="Frame Multiplier logo" loading="lazy"><span class="ui-name">Frame Multiplier</span><span class="ui-host">Figma</span></li>
-        <li class="ui-card "><img src="assets/ui/bloom-logo.svg" alt="Bloom logo" loading="lazy"><span class="ui-name">Bloom</span><span class="ui-host">Figma</span></li>
-        <li class="ui-card "><img src="assets/ui/idml-export-logo.svg" alt="IDML Export logo" loading="lazy"><span class="ui-name">IDML Export</span><span class="ui-host">Figma</span></li>
-        <li class="ui-card "><img src="assets/ui/studio-tools-logo.svg" alt="Studio Tools logo" loading="lazy"><span class="ui-name">Studio Tools</span><span class="ui-host">Figma</span></li>
-        <li class="ui-card "><img src="assets/ui/monochrome-logo.svg" alt="Monochrome Systems logo" loading="lazy"><span class="ui-name">Monochrome Systems</span><span class="ui-host">Studio</span></li>
+      <ul class="ui-grid ui-logos">
+        <li class="ui-card ui-card-dark"><img src="assets/ui/ad-agent-logo.svg" alt="Ad Agent logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/automated-assemblr-logo.svg" alt="Automated Assemblr logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/assemblr-logo.svg" alt="Assemblr logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/frame-multiplier-logo.svg" alt="Frame Multiplier logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/bloom-logo.svg" alt="Bloom logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/idml-export-logo.svg" alt="IDML Export logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/studio-tools-logo.svg" alt="Studio Tools logo" loading="lazy"></li>
+        <li class="ui-card "><img src="assets/ui/monochrome-logo.svg" alt="Monochrome Systems logo" loading="lazy"></li>
       </ul>
 
       <h3 class="sub-head">Widgets</h3>
@@ -507,6 +509,15 @@
     <span>Plugins published by Monochrome Systems.</span>
   </div>
 </footer>
+
+<script type="module">
+  // Ad Agent's glyph globe behind the whole page (assets/js/glyphs.js); still under Reduce motion, paused in a hidden tab.
+  import { startGlyphGlobe } from "./assets/js/glyphs.js";
+  const host = document.querySelector(".cv2-globe");
+  const canvas = document.createElement("canvas");
+  host.append(canvas);
+  startGlyphGlobe(canvas, JSON.parse(host.dataset.glyphs));
+</script>
 
 <script>
   // The rail marks the section on screen, as Ad Agent's rail marks the open widget.

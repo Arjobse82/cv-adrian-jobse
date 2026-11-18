@@ -240,8 +240,19 @@ a.link:hover { text-decoration: underline; }
 .glyph-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .cv2-body { --w-surface: #fff; --w-glyph-soft: #d1d0d0; --w-glyph-ok: #81ff42; --w-glyph-dot: 0; }
 .cv2 { width: min(1200px, 94%); margin-inline: auto; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 48px; }
+/* The globe sits behind everything, fixed; each section is a white card over it with a gap between. */
+.cv2-body { background: #ececed; }
+.cv2-body .nav { background: rgba(255, 255, 255, .72); }
+.cv2-globe { position: fixed; inset: 0; z-index: 0; opacity: .9; }
+.cv2-body .nav, .cv2, .cv2-body .footer { position: relative; z-index: 1; }
+.cv2-body .nav { position: sticky; z-index: 10; }
+.cv2-main { padding: 20px 0 8px; }
 .cv2-main .wrap { width: 100%; }
-.cv2-main .hero { padding-top: 72px; }
+.cv2-main .cv2-sec { margin-bottom: 16px; padding: 52px 56px; border-radius: 22px; background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
+.cv2-main .hero.cv2-sec { padding-top: 56px; }
+.cv2-main .contact.cv2-sec { background: #fff; }
+.cv2-main .section-head { margin-top: 0; }
 .cv2-rail { position: sticky; top: 52px; height: calc(100vh - 52px); display: flex; flex-direction: column; justify-content: center; gap: 14px; }
 .cv2-tile { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--ink); }
 .cv2-tile-face { position: relative; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 14px;
@@ -268,6 +279,9 @@ a.link:hover { text-decoration: underline; }
 .ui-card-dark { background: #111; }
 .ui-card-dark .ui-name { color: #fff; }
 .ui-card-wide { grid-column: span 2; }
+/* Logo tiles: the logo alone, centred, every tile the same size. */
+.ui-logos .ui-card { aspect-ratio: 4 / 3; justify-content: center; align-items: center; padding: 28px; }
+.ui-logos .ui-card img { height: 100%; max-height: 116px; margin: 0; }
 .ui-name { font-size: 14px; font-weight: 600; color: var(--ink); }
 .ui-host { margin-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0; }
 .ui-widgets { list-style: none; margin: 0 0 12px; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
@@ -305,8 +319,9 @@ a.link:hover { text-decoration: underline; }
   .cv2-tile-name { display: none; }
   .cv2-tile[aria-current] .cv2-tile-face::after { left: 50%; top: calc(100% + 4px); transform: translateX(-50%); border-color: transparent; border-top-color: var(--ink); }
   .cv2-tile:first-child .cv2-tile-face::before { right: 5px; bottom: 5px; width: 5px; height: 5px; }
-  .cv2-main .wrap { width: 87.5%; }
-  .cv2-main .hero { padding-top: 40px; }
+  .cv2-main { padding: 12px 10px 4px; }
+  .cv2-main .cv2-sec { margin-bottom: 10px; padding: 32px 22px; border-radius: 18px; }
+  .cv2-main .hero.cv2-sec { padding-top: 28px; }
   .ui-grid { grid-template-columns: repeat(2, 1fr); }
   .ui-widgets { grid-template-columns: repeat(3, 1fr); }
   .ui-icons { grid-template-columns: repeat(4, 1fr); }
